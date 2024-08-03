@@ -18,7 +18,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <Version>7.0.3</Version>
+    <Version>0.0.1</Version>
     <PackageId>Kishotta.AspNetCoreApiTemplate</PackageId>
     <Title>ASP.NET Core Api Template</Title>
     <Company>Kishotta</Company>

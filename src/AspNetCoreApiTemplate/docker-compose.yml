@@ -1,0 +1,64 @@
+services:
+    aspnetcoreapitemplate.api:
+#        image: ${DOCKER_REGISTRY-}aspnetcoreapitemplateapi
+        container_name: AspNetCoreApiTemplate.Api
+        build:
+            context: .
+            dockerfile: ./src/Api/AspNetCoreApiTemplate.Api/Dockerfile
+        ports:
+            - "5000:8080"
+            - "5001:8081"
+        depends_on:
+            aspnetcoreapitemplate.database:
+                condition: service_healthy
+            aspnetcoreapitemplate.redis:
+                condition: service_healthy
+
+    aspnetcoreapitemplate.database:
+        image: postgres:latest
+        container_name: AspNetCoreApiTemplate.Database
+        environment:
+            - POSTGRES_DB=aspnetcoreapitemplate
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        healthcheck:
+            test: pg_isready -U postgres
+            interval: 5s
+            timeout: 3s
+            retries: 3
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./.containers/db:/var/lib/postgresql/data
+
+    aspnetcoreapitemplate.redis:
+        image: redis:latest
+        container_name: AspNetCoreApiTemplate.Redis
+        restart: always
+        healthcheck:
+            test: redis-cli --raw incr ping
+        ports:
+            - "6379:6379"
+
+    aspnetcoreapitemplate.identity:
+        image: quay.io/keycloak/keycloak:latest
+        container_name: AspNetCoreApiTemplate.Identity
+        command: start-dev --import-realm
+        environment:
+            - KC_HEALTH_ENABLED=true
+            - KEYCLOAK_ADMIN=admin
+            - KEYCLOAK_ADMIN_PASSWORD=admin
+        volumes:
+            - ./.containers/identity:/opt/keycloak/data
+            - ./.files:/opt/keycloak/data/import
+        ports:
+            - 18080:8080
+
+    aspnetcoreapitemplate.seq:
+        image: datalust/seq:latest
+        container_name: AspNetCoreApiTemplate.Seq
+        environment:
+            - ACCEPT_EULA=Y
+        ports:
+            - "5341:5341"
+            - "8081:80"

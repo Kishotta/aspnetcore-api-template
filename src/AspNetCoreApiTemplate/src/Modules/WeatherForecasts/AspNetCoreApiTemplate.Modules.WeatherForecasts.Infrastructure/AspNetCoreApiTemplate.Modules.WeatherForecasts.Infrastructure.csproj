@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\AspNetCoreApiTemplate.Common.Infrastructure\AspNetCoreApiTemplate.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.WeatherForecasts.Domain\AspNetCoreApiTemplate.Modules.WeatherForecasts.Domain.csproj" />
+    <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.WeatherForecasts.Presentation\AspNetCoreApiTemplate.Modules.WeatherForecasts.Presentation.csproj" />
+  </ItemGroup>
+</Project>

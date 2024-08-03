@@ -7,10 +7,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["AspNetCoreApiTemplate/src/Api/AspNetCoreApiTemplate.Api/AspNetCoreApiTemplate.Api.csproj", "AspNetCoreApiTemplate/src/Api/AspNetCoreApiTemplate.Api/"]
-RUN dotnet restore "AspNetCoreApiTemplate/src/Api/AspNetCoreApiTemplate.Api/AspNetCoreApiTemplate.Api.csproj"
+COPY ["src/Api/AspNetCoreApiTemplate.Api/AspNetCoreApiTemplate.Api.csproj", "src/Api/AspNetCoreApiTemplate.Api/"]
+RUN dotnet restore "src/Api/AspNetCoreApiTemplate.Api/AspNetCoreApiTemplate.Api.csproj"
 COPY . .
-WORKDIR "/src/AspNetCoreApiTemplate/src/Api/AspNetCoreApiTemplate.Api"
+WORKDIR "/src/src/Api/AspNetCoreApiTemplate.Api"
 RUN dotnet build "AspNetCoreApiTemplate.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish

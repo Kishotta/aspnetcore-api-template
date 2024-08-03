@@ -1,32 +1,50 @@
 {
-  "$schema": "http://json.schemastore.org/template",
-  "author": "Connor Eaves",
-  "classifications": [ "ASP.NET Core", "Core", "MVC", "Template", "Web" ],
-  "tags": {
-    "language": "C#",
-    "type": "solution"
-  },
-  "identity": "Kishotta.AspNetCoreApiTemplate",
-  "name": "ASP.NET Core Api Template",
-  "shortName": "kishotta-aspnetcore-api-template",
-  "sourceName": "AspNetCoreApiTemplate",
-  "symbols": {
-    "skipRestore": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "If specified, skips the automatic restore of the project on create.",
-      "defaultValue": "false"
-    }
-  },
-  "sources": [
-    {
-      "modifiers": [
-        {
-          "exclude": [
-            ".template_config/**"
-          ]
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Connor Eaves",
+    "classifications": ["ASP.NET Core", "Core", "MVC", "Template", "Web"],
+    "tags": {
+        "language": "C#",
+        "type": "solution"
+    },
+    "identity": "Kishotta.AspNetCoreApiTemplate",
+    "name": "ASP.NET Core Api Template",
+    "shortName": "kishotta-aspnetcore-api-template",
+    "sourceName": "AspNetCoreApiTemplate",
+    "symbols": {
+        "skipRestore": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "If specified, skips the automatic restore of the project on create.",
+            "defaultValue": "false"
+        },
+        "ProjectName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "AspNetCoreApiTemplate",
+            "replaces": "AspNetCoreApiTemplate",
+            "fileRename": "AspNetCoreApiTemplate"
+        },
+        "DockerComposeProjectName": {
+            "type": "generated",
+            "generator": "casing",
+            "parameters": {
+                "source": "ProjectName",
+                "toLower": true
+            },
+            "replaces": "aspnetcoreapitemplate"
         }
-      ]
-    }
-  ]
+    },
+    "sources": [
+        {
+            "modifiers": [
+                {
+                    "exclude": [
+                        ".template_config/**",
+                        "**/.containers/**",
+                        "**/.files/**"
+                    ]
+                }
+            ]
+        }
+    ]
 }

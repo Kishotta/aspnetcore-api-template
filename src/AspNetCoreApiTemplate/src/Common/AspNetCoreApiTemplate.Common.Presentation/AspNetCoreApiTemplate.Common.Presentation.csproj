@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Common.Application\AspNetCoreApiTemplate.Common.Application.csproj" />
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Common.Domain\AspNetCoreApiTemplate.Common.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

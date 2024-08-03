@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\AspNetCoreApiTemplate.Common.Presentation\AspNetCoreApiTemplate.Common.Presentation.csproj" />
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.WeatherForecasts.Application\AspNetCoreApiTemplate.Modules.WeatherForecasts.Application.csproj" />
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.WeatherForecasts.Domain\AspNetCoreApiTemplate.Modules.WeatherForecasts.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
