@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>.</PackageOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="src\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
+    <Compile Remove="**\*" />
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <Version>7.0.3</Version>
+    <PackageId>Kishotta.AspNetCoreApiTemplate</PackageId>
+    <Title>ASP.NET Core Api Template</Title>
+    <Company>Kishotta</Company>
+    <Authors>Connor Eaves</Authors>
+    <Copyright>Connor Eaves © 2024</Copyright>
+    <Description>An opinionated template for modular .Net Web Apis.</Description>
+    <PackageTags>template;asp-net-core;webapi;modular-architecture;modular-monolith</PackageTags>
+    <PackageCopyright>Connor Eaves © 2024</PackageCopyright>
+    <PackageProjectUrl>https://github.com/Kishotta/aspnetcore-api-template</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Kishotta/aspnetcore-api-template</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+</Project>

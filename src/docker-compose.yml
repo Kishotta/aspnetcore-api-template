@@ -1,0 +1,73 @@
+services:
+  aspnetcore-api-template.web:
+    image: ${DOCKER_REGISTRY-}aspnetcore-api-templateweb
+    container_name: AspNetCoreApiTemplate.Web
+    build:
+      context: .
+      dockerfile: ./Web/AspNetCoreApiTemplate.Web/Dockerfile
+    ports:
+      - "3000:8080"
+  
+  aspnetcore-api-template.api:
+    image: ${DOCKER_REGISTRY-}aspnetcore-api-templateapi
+    container_name: AspNetCoreApiTemplate.Api
+    build:
+      context: .
+      dockerfile: ./Api/AspNetCoreApiTemplate.Api/Dockerfile
+    ports:
+      - "5000:8080"
+      - "5001:8081"
+    depends_on:
+      aspnetcore-api-template.database:
+        condition: service_healthy
+      aspnetcore-api-template.redis:
+        condition: service_healthy
+  
+  aspnetcore-api-template.database:
+    image: postgres:latest
+    container_name: AspNetCoreApiTemplate.Database
+    environment:
+      - POSTGRES_DB=aspnetcore-api-template
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/data
+
+  aspnetcore-api-template.redis:
+    image: redis:latest
+    container_name: AspNetCoreApiTemplate.Redis
+    restart: always
+    healthcheck:
+      test: redis-cli --raw incr ping
+    ports:
+      - "6379:6379"
+  
+  aspnetcore-api-template.identity:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: AspNetCoreApiTemplate.Identity
+    command: start-dev --import-realm
+    environment:
+      - KC_HEALTH_ENABLED=true
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    volumes:
+      - ./.containers/identity:/opt/keycloak/data
+      - ./.files:/opt/keycloak/data/import
+    ports:
+      - 18080:8080
+  
+  aspnetcore-api-template.seq:
+    image: datalust/seq:latest
+    container_name: AspNetCoreApiTemplate.Seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "5341:5341"
+      - "8081:80"
