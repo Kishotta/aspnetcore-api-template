@@ -28,6 +28,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreApiTemplate.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreApiTemplate.Modules.WeatherForecasts.Application", "src\Modules\WeatherForecasts\AspNetCoreApiTemplate.Modules.WeatherForecasts.Application\AspNetCoreApiTemplate.Modules.WeatherForecasts.Application.csproj", "{BEAE2E95-A7A0-40CF-9AF1-54329B963FDA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Todos", "Todos", "{7172D0D4-76BA-49F4-8714-C1D078854E5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreApiTemplate.Modules.Todos.Domain", "src\Modules\Todos\AspNetCoreApiTemplate.Modules.Todos.Domain\AspNetCoreApiTemplate.Modules.Todos.Domain.csproj", "{3B161324-5980-4650-AD48-0BD2B20A2560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreApiTemplate.Modules.Todos.Application", "src\Modules\Todos\AspNetCoreApiTemplate.Modules.Todos.Application\AspNetCoreApiTemplate.Modules.Todos.Application.csproj", "{BAFB0D70-FE28-4DA2-B9D0-A228AD6DAE15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreApiTemplate.Modules.Todos.Infrastructure", "src\Modules\Todos\AspNetCoreApiTemplate.Modules.Todos.Infrastructure\AspNetCoreApiTemplate.Modules.Todos.Infrastructure.csproj", "{487D8E5D-CF25-40BD-9E31-16B8A31B6BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreApiTemplate.Modules.Todos.Presentation", "src\Modules\Todos\AspNetCoreApiTemplate.Modules.Todos.Presentation\AspNetCoreApiTemplate.Modules.Todos.Presentation.csproj", "{6B6EF0EE-2127-4697-B563-8F59C817A09C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +57,11 @@ Global
 		{C98A9B27-EC75-4DDD-8BE8-5D88CADFA6DA} = {3FC7DE4A-E4CA-48B5-91A0-A416F2A9705C}
 		{81EE222D-0FFF-478E-9068-EC2428EE082E} = {3FC7DE4A-E4CA-48B5-91A0-A416F2A9705C}
 		{BEAE2E95-A7A0-40CF-9AF1-54329B963FDA} = {23A1AB56-CE6C-44CE-848B-3483F5C8A20B}
+		{7172D0D4-76BA-49F4-8714-C1D078854E5D} = {4E2C1084-9792-4169-99CD-77155DACD20E}
+		{3B161324-5980-4650-AD48-0BD2B20A2560} = {7172D0D4-76BA-49F4-8714-C1D078854E5D}
+		{BAFB0D70-FE28-4DA2-B9D0-A228AD6DAE15} = {7172D0D4-76BA-49F4-8714-C1D078854E5D}
+		{487D8E5D-CF25-40BD-9E31-16B8A31B6BD5} = {7172D0D4-76BA-49F4-8714-C1D078854E5D}
+		{6B6EF0EE-2127-4697-B563-8F59C817A09C} = {7172D0D4-76BA-49F4-8714-C1D078854E5D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{414CC880-2A6C-48EC-A6C0-DAE10689E4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -85,5 +100,21 @@ Global
 		{BEAE2E95-A7A0-40CF-9AF1-54329B963FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEAE2E95-A7A0-40CF-9AF1-54329B963FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEAE2E95-A7A0-40CF-9AF1-54329B963FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B161324-5980-4650-AD48-0BD2B20A2560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B161324-5980-4650-AD48-0BD2B20A2560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B161324-5980-4650-AD48-0BD2B20A2560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B161324-5980-4650-AD48-0BD2B20A2560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAFB0D70-FE28-4DA2-B9D0-A228AD6DAE15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAFB0D70-FE28-4DA2-B9D0-A228AD6DAE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAFB0D70-FE28-4DA2-B9D0-A228AD6DAE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAFB0D70-FE28-4DA2-B9D0-A228AD6DAE15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487D8E5D-CF25-40BD-9E31-16B8A31B6BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487D8E5D-CF25-40BD-9E31-16B8A31B6BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487D8E5D-CF25-40BD-9E31-16B8A31B6BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487D8E5D-CF25-40BD-9E31-16B8A31B6BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B6EF0EE-2127-4697-B563-8F59C817A09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6EF0EE-2127-4697-B563-8F59C817A09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6EF0EE-2127-4697-B563-8F59C817A09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6EF0EE-2127-4697-B563-8F59C817A09C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

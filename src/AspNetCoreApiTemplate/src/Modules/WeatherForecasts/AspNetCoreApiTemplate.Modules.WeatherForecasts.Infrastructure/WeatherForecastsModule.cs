@@ -12,15 +12,20 @@ public sealed class WeatherForecastsModule : IModule
 {
     public string Name => nameof(WeatherForecasts);
     
-    public void AddConfiguration(IConfigurationBuilder configuration)
-    {
-        configuration.AddModuleConfigurationFiles(this);
-    }
-
     public void AddModule(IServiceCollection services, ConfigurationManager configuration)
     {
+        configuration.AddModuleConfigurationFiles(this);
+        
+        // services.AddDomainEventHandlers(Domain.AssemblyReference.Assembly, typeof(IdempotentDomainEventHandler<>))
+        // services.AddIntegrationEventHandlers(Presentation.AssemblyReference.Assembly, typeof(IdempotentIntegrationEventHandler<>))
+        
         services.AddApplicationUseCases(Application.AssemblyReference.Assembly);
-        services.AddScoped<IWeatherForecastRepository, WeatherForecastRepository>();
+        
+        // services.AddDatabase<WeatherForecastsDbContext, IUnitOfWork>(configuration, Schemas.WeatherForecasts)
+        //     .AddScoped<IWeatherForecastRepository, WeatherForecastRepository>()
+        
         services.AddEndpoints(Presentation.AssemblyReference.Assembly);
+        
+        services.AddScoped<IWeatherForecastRepository, WeatherForecastRepository>();
     }
 }

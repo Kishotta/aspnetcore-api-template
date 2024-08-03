@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\AspNetCoreApiTemplate.Common.Infrastructure\AspNetCoreApiTemplate.Common.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\..\Common\AspNetCoreApiTemplate.Common.Presentation\AspNetCoreApiTemplate.Common.Presentation.csproj" />
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.Todos.Application\AspNetCoreApiTemplate.Modules.Todos.Application.csproj" />
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.Todos.Domain\AspNetCoreApiTemplate.Modules.Todos.Domain.csproj" />
+      <ProjectReference Include="..\AspNetCoreApiTemplate.Modules.Todos.Presentation\AspNetCoreApiTemplate.Modules.Todos.Presentation.csproj" />
+    </ItemGroup>
+
+</Project>

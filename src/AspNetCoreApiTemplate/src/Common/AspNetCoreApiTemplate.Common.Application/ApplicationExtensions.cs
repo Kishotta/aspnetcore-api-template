@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetCoreApiTemplate.Common.Application;
 
-public static class UseCaseExtensions
+public static class ApplicationExtensions
 {
     public static IServiceCollection AddApplicationUseCasePipeline(
         this IServiceCollection services)

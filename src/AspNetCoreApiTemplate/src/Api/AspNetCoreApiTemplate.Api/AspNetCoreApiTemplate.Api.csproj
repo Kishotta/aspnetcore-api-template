@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Common\AspNetCoreApiTemplate.Common.Infrastructure\AspNetCoreApiTemplate.Common.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Modules\Todos\AspNetCoreApiTemplate.Modules.Todos.Infrastructure\AspNetCoreApiTemplate.Modules.Todos.Infrastructure.csproj" />
       <ProjectReference Include="..\..\Modules\WeatherForecasts\AspNetCoreApiTemplate.Modules.WeatherForecasts.Infrastructure\AspNetCoreApiTemplate.Modules.WeatherForecasts.Infrastructure.csproj" />
     </ItemGroup>
 

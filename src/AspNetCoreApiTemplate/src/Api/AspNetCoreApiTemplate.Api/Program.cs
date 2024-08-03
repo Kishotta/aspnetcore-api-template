@@ -10,7 +10,9 @@ builder.Services.AddExceptionHandling();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.AddModules();
+var databaseConnectionString = builder.Configuration.GetConnectionString("Database")!;
+
+builder.AddModules(databaseConnectionString);
 
 var app = builder.Build();
 
